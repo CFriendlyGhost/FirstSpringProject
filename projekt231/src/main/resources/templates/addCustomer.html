@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Add Customer</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/input-page.css}"/>
+</head>
+
+<body>
+<div class="typePage">
+
+    <div class="title">Type to add costumer</div>
+
+    <form th:object="${customer}" method="post">
+
+        <div class="input-container ic1">
+            <input id="firstName" class="input" placeholder=" " th:field="*{name}" type="text"/>
+            <div class="cut"></div>
+            <label for="firstname" class="placeholder">First name</label>
+        </div>
+
+        <div class="input-container ic2">
+            <input class="input" th:field="*{age}" id="lastname" placeholder=" " type="text"/>
+            <div class="cut"></div>
+            <label class="placeholder" for="firstname">Age</label>
+        </div>
+
+        <div class="input-container ic2">
+            <input class="input" th:field="*{email}" id="email" placeholder=" " type="text"/>
+            <div class="cut"></div>
+            <label class="placeholder" for="firstname">E-mail</label>
+        </div>
+
+        <button class="submit" type="submit">submit</button>
+
+    </form>
+</div>
+</body>
+</html>

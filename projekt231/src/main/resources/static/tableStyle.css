@@ -1,0 +1,59 @@
+body{
+    background: linear-gradient(90deg, rgba(55,150,131,1) 0%, rgba(177,162,150,1) 48%, rgba(93,92,97,1) 100%);
+}
+
+.tableStyle {
+    border-spacing: 0 16px;
+    width: 50%;
+    letter-spacing: 0.03em;
+}
+
+.tableStyle td {
+    box-shadow: 0 3px 0 0 rgba(0,0,0,0.1);
+    padding: 10px 8px 10px 30px;
+    font-family: "Andale Mono", monospace;
+    color: #ffffff;
+}
+
+.tableStyle th {
+    box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.2);
+    font-family: "Bahnschrift", serif;
+    padding: 30px 0 30px 30px;
+    font-size: 15px;
+    text-align: left;
+    background-color: #557a95;
+    color: #ffffff;
+}
+
+
+.tableStyle th:first-child {
+    border-radius: 50px 0 0 50px;
+    box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.2);
+}
+
+.tableStyle th:last-child {
+    border-radius: 0 50px 50px 0;
+}
+
+.tableStyle tr:nth-child(odd){
+    background-color: #7395ae;
+}
+
+.tableStyle tr:nth-child(even){
+    background-color: #589493;
+}
+
+.tableStyle td:first-child {
+    border-radius: 50px 0 0 50px;
+    box-shadow: 0 3px 0 0 rgba(0,0,0,0.1);
+}
+
+.tableStyle td:last-child {
+    border-radius: 0 50px 50px 0;
+    box-shadow: 0 3px 0 0 rgba(0,0,0,0.1);
+}
+
+.tableStyle tr:hover {
+    background-color: #919191;
+    transition: all 0.5s ease-in-out;
+}

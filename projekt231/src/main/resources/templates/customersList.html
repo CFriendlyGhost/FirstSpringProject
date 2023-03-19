@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customers List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/button.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/tableStyle.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/navBar.css}"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&effect=shadow-multiple">
+</head>
+<body>
+
+<div class="navBar">
+    <a href="/"> <i class="material-icons">home</i> </a>
+    <a href="/customers/add"> <i class="material-icons">add</i> </a>
+    <a> <i class="material-icons">help</i> </a>
+    <div class="search-container">
+        <form>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Type to find customer..." title="Type in a name">
+        </form>
+    </div>
+</div>
+
+<table  id="customersTable"
+        class="tableStyle"
+       table align="center">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  th:each= "cust: ${customers}">
+            <td><span th:text="${cust.getName()}"> Name</span></td>
+            <td><span th:text="${cust.getAge()}"> Age</span></td>
+            <td><span th:text="${cust.getEmail()}"> Email</span></td>
+            <td>
+                <form th:action="@{/customers/{customerId}(customerId=${cust.getId()})}" th:object="${cust}" method="post">
+                    <button class="button" style="vertical-align:middle" onClick="return confirm('click OK to accept')"/>
+                        <span>Delete</span> </button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+
+
+</table>
+
+<script>
+    function myFunction() {
+        var filter, table, tr, i, td, txtValue;
+        filter = (document.getElementById("myInput")).value.toUpperCase();
+        table = document.getElementById("customersTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
